@@ -8,7 +8,7 @@ export const ProductStyle = styled.div`
   padding: 1.5rem;
   cursor: pointer;
   img {
-    width: 25%;
+    width:100%;
     object-fit: cover;
   }
   h2 {
