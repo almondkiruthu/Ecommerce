@@ -1,15 +1,16 @@
 import React from "react";
 import Link from "next/link";
 import { FiShoppingBag } from "react-icons/fi";
+import { NavItems, NavStyle } from "../styles/NavStyles";
 const Nav = () => {
   return (
-    <div>
+    <NavStyle>
       <Link href="/">Styled.</Link>
-      <div>
+      <NavItems>
         <FiShoppingBag />
         <h3>Cart</h3>
-      </div>
-    </div>
+      </NavItems>
+    </NavStyle>
   );
 };
 
