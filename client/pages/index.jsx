@@ -1,8 +1,11 @@
 import Head from 'next/head'
-import Image from 'next/image'
-
+import { PRODUCT_QUERY } from "../lib/query";
+import { useQuery } from "urql";
 
 export default function Home() {
+  //fetch products from strapi
+  const [result] = useQuery({query: PRODUCT_QUERY});
+  console.log(result);
   return (
     <div>
       <Head>
