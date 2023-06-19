@@ -3,6 +3,7 @@ import { useQuery } from "urql";
 import { GET_PRODUCT_QUERY } from "../../lib/query";
 import { useRouter } from "next/router";
 import { DetailsStyle, ProductInfo, Quantity, Buy } from "../../styles/ProductsDetail";
+import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 
 const ProductDetails = () => {
   //fetch slug
@@ -32,9 +33,9 @@ const ProductDetails = () => {
 
         <Quantity>
           <span>Quantity</span>
-          <button>Plus</button>
+          <button><AiFillMinusCircle/></button>
           <p>0</p>
-          <button>Minus</button>
+          <button><AiFillPlusCircle/></button>
         </Quantity>
         <Buy>Add to cart</Buy>
       </ProductInfo>
