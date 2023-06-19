@@ -22,7 +22,6 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1>Hello nEXT</h1>
         <Gallery>
           {" "}
           {products.map((product) => (
