@@ -2,6 +2,7 @@ import React from "react";
 import { useQuery } from "urql";
 import { GET_PRODUCT_QUERY } from "../../lib/query";
 import { useRouter } from "next/router";
+import { DetailsStyle, ProductInfo, Quantity, Buy } from "../../styles/ProductsDetail";
 
 const ProductDetails = () => {
   //fetch slug
@@ -20,20 +21,24 @@ const ProductDetails = () => {
   const { Title, Description, Price, Image } = data.products.data[0].attributes;
 
   return (
-    <div>
-      <img src={Image.data.attributes.formats.medium.url} alt="awesome product" />
-      <div>
+    <DetailsStyle>
+      <img
+        src={Image.data.attributes.formats.medium.url}
+        alt="awesome product"
+      />
+      <ProductInfo>
         <h3>{Title}</h3>
         <p>{Description}</p>
-      </div>
-      <div>
-        <span>Quantity</span>
-        <button>Plus</button>
-        <p>0</p>
-        <button>Minus</button>
-      </div>
-      <button>Add to cart</button>
-    </div>
+
+        <Quantity>
+          <span>Quantity</span>
+          <button>Plus</button>
+          <p>0</p>
+          <button>Minus</button>
+        </Quantity>
+        <Buy>Add to cart</Buy>
+      </ProductInfo>
+    </DetailsStyle>
   );
 };
 
