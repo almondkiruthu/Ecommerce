@@ -5,6 +5,8 @@ const ShopContext = createContext();
 
 export const StateContext = ({ children }) => {
   //Add our state here
+  const [showCart, setShowCart] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
   const [qty, setQty] = useState(1);
   const increaseQty = () => {
     setQty((prevQty) => prevQty + 1);
