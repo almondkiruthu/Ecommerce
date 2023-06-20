@@ -6,8 +6,17 @@ const ShopContext = createContext();
 export const StateContext = ({ children }) => {
   //Add our state here
   const [qty, setQty] = useState(1);
+  const increaseQty = () => {
+    setQty((prevQty)=> prevQty + 1);
+  };
+  const decrement = () => {
+    if (qty > 1) {
+      setQty((prevQty)=> prevQty - 1);
+    }
+    else {
+      
   return (
-    <ShopContext.Provider value={{ qty }}>{children}</ShopContext.Provider>
+    <ShopContext.Provider value={{ qty, increaseQty }}>{children}</ShopContext.Provider>
   );
 };
 
