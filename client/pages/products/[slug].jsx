@@ -2,10 +2,19 @@ import React from "react";
 import { useQuery } from "urql";
 import { GET_PRODUCT_QUERY } from "../../lib/query";
 import { useRouter } from "next/router";
-import { DetailsStyle, ProductInfo, Quantity, Buy } from "../../styles/ProductsDetail";
+import {
+  DetailsStyle,
+  ProductInfo,
+  Quantity,
+  Buy,
+} from "../../styles/ProductsDetail";
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 
+import { useStateContext } from "../../lib/context";
+
 const ProductDetails = () => {
+  const { qty } = useStateContext();
+  console.log(qty);
   //fetch slug
   const { query } = useRouter();
 
@@ -33,9 +42,13 @@ const ProductDetails = () => {
 
         <Quantity>
           <span>Quantity</span>
-          <button><AiFillMinusCircle/></button>
-          <p>0</p>
-          <button><AiFillPlusCircle/></button>
+          <button>
+            <AiFillMinusCircle />
+          </button>
+          <p>{qty}</p>
+          <button>
+            <AiFillPlusCircle />
+          </button>
         </Quantity>
         <Buy>Add to cart</Buy>
       </ProductInfo>
