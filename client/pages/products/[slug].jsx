@@ -13,8 +13,8 @@ import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 import { useStateContext } from "../../lib/context";
 
 const ProductDetails = () => {
-  const { qty } = useStateContext();
-  console.log(qty);
+  const { qty, increaseQty, decreaseQty } = useStateContext();
+
   //fetch slug
   const { query } = useRouter();
 
@@ -23,6 +23,7 @@ const ProductDetails = () => {
     query: GET_PRODUCT_QUERY,
     variables: { slug: query.slug },
   });
+
   //Check if data is fetching...
   const { data, fetching, error } = result;
   if (fetching) return <p>Loading...</p>;
@@ -42,11 +43,11 @@ const ProductDetails = () => {
 
         <Quantity>
           <span>Quantity</span>
-          <button>
+          <button onClick={decreaseQty}>
             <AiFillMinusCircle />
           </button>
           <p>{qty}</p>
-          <button>
+          <button onClick={increaseQty}>
             <AiFillPlusCircle />
           </button>
         </Quantity>

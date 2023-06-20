@@ -10,11 +10,12 @@ export const StateContext = ({ children }) => {
     setQty((prevQty) => prevQty + 1);
   };
   const decreaseQty = () => {
-    if (prevQty - 1 < 1) {
-      return 1;
-    } else {
-      setQty((prevQty) => prevQty - 1);
-    }
+    setQty((prevQty) => {
+      if (prevQty - 1 < 1) return 1;
+      else {
+        return prevQty - 1;
+      }
+    });
   };
 
   return (
