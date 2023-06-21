@@ -12,8 +12,7 @@ import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 import { Quantity } from "../styles/ProductsDetail";
 
 const Cart = () => {
-  const { cartItems, decreaseQty, increaseQty, qty, setShowCart, onAdd } =
-    useStateContext();
+  const { cartItems, setShowCart, onAdd, onRemove, totalPrice } = useStateContext();
   return (
     <CartWrapper onClick={() => setShowCart(false)}>
       <CartStyle onClick={(e) => e.stopPropagation()}>
@@ -33,14 +32,14 @@ const Cart = () => {
                 />
                 <CardInfo>
                   <h3>{item.Title}</h3>
-                  <h3>{item.Price}</h3>
+                  <h3>{item.Price}$</h3>
                   <Quantity>
                     <span>Quantity</span>
-                    <button onClick={decreaseQty}>
+                    <button onClick={() => onRemove(item)}>
                       <AiFillMinusCircle />
                     </button>
-                    <p>{qty}</p>
-                    <button onClick={()=> onAdd(item, 1)}>
+                    <p>{item.quantity}</p>
+                    <button onClick={() => onAdd(item, 1)}>
                       <AiFillPlusCircle />
                     </button>
                   </Quantity>
@@ -48,6 +47,12 @@ const Cart = () => {
               </Card>
             );
           })}
+        {cartItems.length >= 1 && (
+          <div>
+            <h3>{totalPrice}$</h3>
+            <button>Checkout</button>
+          </div>
+        )}
       </CartStyle>
     </CartWrapper>
   );
