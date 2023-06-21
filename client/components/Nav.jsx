@@ -13,9 +13,11 @@ const Nav = () => {
       <Link href="/">Styled.</Link>
       <NavItems>
         <div onClick={() => setShowCart(true)}>
-          <motion.span animate={{ scale: 1 }} initial={{ scale: 0 }}>
-            {totalQuantities}
-          </motion.span>
+          {totalQuantities > 0 && (
+            <motion.span animate={{ scale: 1 }} initial={{ scale: 0 }}>
+              {totalQuantities}
+            </motion.span>
+          )}
           <FiShoppingBag />
           <h3>Cart</h3>
         </div>
