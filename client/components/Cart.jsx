@@ -58,11 +58,11 @@ const Cart = () => {
           </EmptyStyle>
         )}
 
-        <Cards variants={cards} initial="hidden" animate="show">
+        <Cards layout variants={cards} initial="hidden" animate="show">
           {cartItems.length >= 1 &&
             cartItems.map((item) => {
               return (
-                <Card variants={card} key={item.slug}>
+                <Card layout variants={card} key={item.slug}>
                   <img
                     src={item.Image.data.attributes.formats.thumbnail.url}
                     alt={item.title}
@@ -86,7 +86,7 @@ const Cart = () => {
             })}
         </Cards>
         {cartItems.length >= 1 && (
-          <Checkout>
+          <Checkout layout>
             <h3>{totalPrice}$</h3>
             <button>Checkout</button>
           </Checkout>
