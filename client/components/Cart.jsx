@@ -6,6 +6,7 @@ import {
   Card,
   CardInfo,
   EmptyStyle,
+  Checkout
 } from "../styles/CartStyles";
 import { FaShoppingCart } from "react-icons/fa";
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
@@ -48,10 +49,10 @@ const Cart = () => {
             );
           })}
         {cartItems.length >= 1 && (
-          <div>
+          <Checkout>
             <h3>{totalPrice}$</h3>
             <button>Checkout</button>
-          </div>
+          </Checkout>
         )}
       </CartStyle>
     </CartWrapper>
