@@ -8,9 +8,13 @@ export const StateContext = ({ children }) => {
   const [showCart, setShowCart] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [qty, setQty] = useState(1);
+
+  //Increase product quantity
   const increaseQty = () => {
     setQty((prevQty) => prevQty + 1);
   };
+
+  //Decrease product quantity
   const decreaseQty = () => {
     setQty((prevQty) => {
       if (prevQty - 1 < 1) return 1;
@@ -20,8 +24,21 @@ export const StateContext = ({ children }) => {
     });
   };
 
+  //Add product to Cart
+  const onAdd  = (product, quantity) => {
+
   return (
-    <ShopContext.Provider value={{ qty, increaseQty, decreaseQty }}>
+    <ShopContext.Provider
+      value={{
+        qty,
+        increaseQty,
+        decreaseQty,
+        cartItems,
+        setCartItems,
+        showCart,
+        setShowCart,
+      }}
+    >
       {children}
     </ShopContext.Provider>
   );
