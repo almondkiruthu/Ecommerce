@@ -7,6 +7,7 @@ import {
   CardInfo,
   EmptyStyle,
   Checkout,
+  Cards,
 } from "../styles/CartStyles";
 import { FaShoppingCart } from "react-icons/fa";
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
