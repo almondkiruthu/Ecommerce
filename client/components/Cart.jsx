@@ -1,10 +1,11 @@
 import React from "react";
 import { useStateContext } from "../lib/context";
+import { CartWrapper } from "../styles/CartStyles";
 
 const Cart = () => {
   const { cartItems } = useStateContext();
   return (
-    <div>
+    <CartWrapper>
       <div>
         <div>
           <h1>You have more shopping to do! 😜</h1>
@@ -17,7 +18,7 @@ const Cart = () => {
           </div>
         </div>
       </div>
-    </div>
+    </CartWrapper>
   );
 };
 
