@@ -1,7 +1,6 @@
 import React, { Children } from "react";
 import { createContext, useContext, useState } from "react";
 
-
 const ShopContext = createContext();
 
 export const StateContext = ({ children }) => {
