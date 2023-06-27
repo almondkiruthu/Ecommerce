@@ -51,4 +51,3 @@ export const Buy = styled.button`
 `;
 
 
-//Add stripe
