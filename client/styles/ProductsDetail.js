@@ -49,5 +49,3 @@ export const Buy = styled.button`
   color: white;
   font-weight: 500;
 `;
-
-
