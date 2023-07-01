@@ -28,6 +28,10 @@ const handler = async (req, res) => {
               },
               unit_amount: item.Price * 100,
             },
+            adjustable_quantity: {
+              enabled: true,
+              minimum: 1,
+            },
             quantity: item.quantity,
           };
         }),
