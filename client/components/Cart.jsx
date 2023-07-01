@@ -78,11 +78,11 @@ const Cart = () => {
                 <Card layout variants={card} key={item.slug}>
                   <img
                     src={item.Image.data.attributes.formats.thumbnail.url}
-                    alt={item.title}
+                    alt={item.Title}
                   />
                   <CardInfo>
                     <h3>{item.Title}</h3>
-                    <h3>{item.Price}$</h3>
+                    <h3>{item.Price} KES</h3>
                     <Quantity>
                       <span>Quantity</span>
                       <button onClick={() => onRemove(item)}>
@@ -100,7 +100,7 @@ const Cart = () => {
         </Cards>
         {cartItems.length >= 1 && (
           <Checkout layout>
-            <h3>{totalPrice}$</h3>
+            <h3>{totalPrice} KES</h3>
             <button onClick={handleCheckout}>Checkout</button>
           </Checkout>
         )}

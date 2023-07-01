@@ -18,7 +18,7 @@ const Product = ({ product }) => {
       </Link>
       <h2>{Title}</h2>
       <p>{Description}</p>
-      <h3>{Price}</h3>
+      <h3>{Price} KES</h3>
     </ProductStyle>
   );
 };
