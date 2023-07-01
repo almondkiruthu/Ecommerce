@@ -12,6 +12,7 @@ import {
 import { FaShoppingCart } from "react-icons/fa";
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 import { Quantity } from "../styles/ProductsDetail";
+import getStripe from "../lib/getStripe";
 
 //Aniamtion variants
 const card = {
@@ -28,6 +29,11 @@ const cards = {
       staggerChildren: 0.1,
     },
   },
+};
+
+//Payment
+const handleCheckout = async () => {
+  const stripe = await getStripe();
 };
 
 const Cart = () => {
