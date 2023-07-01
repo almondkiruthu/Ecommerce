@@ -12,15 +12,16 @@ const handler = async (req, res) => {
         shipping_address_collection: {
           allowed_countries: ["KE", "UG", "TZ", "RW", "NG", "SA"],
         },
+        allow_promotion_codes: true,
         shipping_options: [
           {
-            shipping_rate: shr_1NP5j4Ar5sgh1wyKBMi2rNRr,
+            shipping_rate: "shr_1NP5j4Ar5sgh1wyKBMi2rNRr",
           },
         ],
         line_items: req.body.map((item) => {
           return {
             price_data: {
-              currency: "usd",
+              currency: "KES",
               product_data: {
                 name: item.Title,
                 images: [item.Image.data.attributes.formats.thumbnail.url],
