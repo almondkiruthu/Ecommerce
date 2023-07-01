@@ -14,9 +14,8 @@ const handler = async (req, res) => {
         },
         allow_promotion_codes: true,
         shipping_options: [
-          {
-            shipping_rate: "shr_1NP5j4Ar5sgh1wyKBMi2rNRr",
-          },
+          { shipping_rate: "shr_1NP5j4Ar5sgh1wyKBMi2rNRr" },
+          { shipping_rate: "shr_1NP6B9Ar5sgh1wyKCbmM54bA" },
         ],
         line_items: req.body.map((item) => {
           return {
