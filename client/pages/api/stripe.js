@@ -10,8 +10,13 @@ const handler = async (req, res) => {
         mode: "payment",
         payment_method_types: ["card"],
         shipping_address_collection: {
-          allowed_countries: ["US", "CA"],
+          allowed_countries: ["KE", "UG", "TZ", "RW", "NG", "SA"],
         },
+        shipping_options: [
+          {
+            shipping_rate: shr_1NP5j4Ar5sgh1wyKBMi2rNRr,
+          },
+        ],
         line_items: req.body.map((item) => {
           return {
             price_data: {
@@ -20,14 +25,18 @@ const handler = async (req, res) => {
                 name: item.Title,
                 images: [item.Image.data.attributes.formats.thumbnail.url],
               },
-              unit_amount: item.price * 100,
+              unit_amount: item.Price * 100,
             },
+            quantity: item.quantity,
           };
         }),
+        //Bring people to sucess or failed page
+        success_url: `${req.headers.origin}/success`,
+        cancel_url: `${req.headers.origin}/failed`,
       });
       res.status(200).json(session);
     } catch (error) {
-      res.status(400).json({ message: error.message });
+      res.status(error.statusCode || 500).json({ message: error.message });
     }
   }
 };
